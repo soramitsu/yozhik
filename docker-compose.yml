@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  yozhik:
+    image: soramitsu/yozhik:latest
+    build: .
+    environment:
+      YOZHIK_WEBHOOK_ADDRESS: "0.0.0.0:8080"
+      YOZHIK_GITHUB_TOKEN: ""
+    volumes:
+      - "./config/:/etc/yozhik/"
+    ports:
+      - "8080:8080"
