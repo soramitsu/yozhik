@@ -37,11 +37,13 @@ This file will be generated automatically if it does not exist.
 
 ## Configuring Webhook
 
-You can create a new webhook in your repository settings. Following settings are required:
+You can create a new webhook in your repository settings, subsection `Webhooks`. Press `Add webhook` and enter following settings:
 - Payload URL: the public address of this instance including the port and `/github` at the end. Example: `http://localhost:1337/github`
-- Content type: application/json
+- Content type: `application/json`
 - Secret: the string from the `webhook_key` file
 - Which events would you like to trigger this webhook?: Let me select individual events. - Issues
-- Active: True
+- Active: checked
 
-These settings are required for every repository you want to use with Yozhik.
+After that, press big green button `Add webhook`.
+
+These procedure must be repeated for every repository you want to use with Yozhik.
