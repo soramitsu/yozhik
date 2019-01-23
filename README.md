@@ -9,7 +9,9 @@ This is the source code repository for [Yozhik], automatic issue closer for Gith
 This project can use Docker as a deployment platform.
 Building the image is as easy as running this command in the repo directory:
 
-   docker build -t soramitsu/yozhik:latest .
+```sh
+docker build -t soramitsu/yozhik:latest .
+```
    
 ## Environment Variables
 
@@ -36,7 +38,10 @@ This file will be generated automatically if it does not exist.
 ## Configuring Webhook
 
 You can create a new webhook in your repository settings. Following settings are required:
-- Payload URL: the public address of this instance including the port
+- Payload URL: the public address of this instance including the port and `/github` at the end. Example: `http://localhost:1337/github`
 - Content type: application/json
+- Secret: the string from the `webhook_key` file
 - Which events would you like to trigger this webhook?: Let me select individual events. - Issues
 - Active: True
+
+These settings are required for every repository you want to use with Yozhik.
