@@ -46,4 +46,4 @@ You can create a new webhook in your repository settings, subsection `Webhooks`.
 
 After that, press big green button `Add webhook`.
 
-These procedure must be repeated for every repository you want to use with Yozhik.
+This procedure must be repeated for every repository you want to use with Yozhik.
