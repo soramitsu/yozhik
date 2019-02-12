@@ -74,7 +74,9 @@ This procedure must be repeated for every repository you want to use with Yozhik
 <details>
 <summary>Example of configuration:</summary>
 <p>
+
 ![Webhook Page Screenshot](images/github-webhook.png)
+
 </p>
 </details>
 
