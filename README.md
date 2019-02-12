@@ -23,6 +23,18 @@ This API key has to have access to `repo` scope.
 
 `RUST_LOG` - logging level, possible values: `trace`, `info`, `warn`, `error`.
 
+### Jira Environment Variables
+
+These are required only for integrating with Jira.
+
+`YOZHIK_JIRA_EMAIL` - email of the bot's account.
+
+`YOZHIK_JIRA_TOKEN` - API token, it can be acquired in the **Security** tab of your 
+[profile settings](images/jira-api-token.png).
+
+`YOZHIK_JIRA_API` - the address of your Jira organization with the trailing slash, e.g. `https://vilunov.atlassian.net/`.
+
+`YOZHIK_JIRA_ISSUE_ID_DEFAULT` - the default issue type ID, `10002` if not specified.
 
 [Profile settings]: https://github.com/settings/tokens
 
@@ -34,6 +46,17 @@ These files have to be stored either in the `config` subdirectory or in the `/et
 
 `webhook_key` - the key which has to be put in the `secret` field during Github webhook configuration.
 This file will be generated automatically if it does not exist.
+
+`config.toml` - this file contains settings for linking Github repos with Jira projects. It should contain settings
+for each repository in a subblock. Example of a block:
+```toml
+["vilunov/yozhik-test"]
+jira-project-key = "YT"
+jira-issue-type-id = "10002"
+```
+This example describes the repo name at Github, the project code in the Jira organization,
+and issue type ID (task in this case).
+
 
 ## Configuring Webhook
 
@@ -47,3 +70,16 @@ You can create a new webhook in your repository settings, subsection `Webhooks`.
 After that, press big green button `Add webhook`.
 
 This procedure must be repeated for every repository you want to use with Yozhik.
+
+<details>
+<summary>Example of configuration:</summary>
+<p>
+![Webhook Page Screenshot](images/github-webhook.png)
+</p>
+</details>
+
+## Configuring Jira Integration
+
+Firstly, you need to setup an account with an API key and restart the service with correct 
+[environment variables](#jira-environment-variables). Then you need to create the 
+[configuration file](#configuration-files) with Jira project settings for each repo.
